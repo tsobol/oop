@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/HyperMarket.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/SuperClass.php</file>
+            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/BaseMarket.php</file>
             <file>file:/home/tsobol/NetBeansProjects/OOP/index.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/AdditionalProfit.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/HolidaysProfit.php</file>
+            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/Market.php</file>
         </group>
     </open-files>
 </project-private>

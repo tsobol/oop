@@ -1,14 +1,14 @@
 <?php
-require_once('SuperClass.php');
-class SuperMarket extends BaseClass{
+require_once('BaseMarket.php');
+class SuperMarket extends BaseMarket{
 	const case_lucratoare_initial=3;
 	const case_disponibile=5;
 	const profit_initial=60000;
 
-	public function __construct($nume,$adresa,$numar_inregistrare){			
+	public function __construct(){			
 			$this->profit=self::profit_initial;
 			$this->caseLucratoare=self::case_lucratoare_initial;
-                        parent::__construct($nume,$adresa,$numar_inregistrare);
+                        parent::__construct('super-market','str. Titulescu',765388);
 	}
 
     public function addAttachments($object){

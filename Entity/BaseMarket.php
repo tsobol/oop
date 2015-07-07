@@ -1,9 +1,9 @@
 <?php
 
-include_once('PlusProfit/AdditionalProfit.php');
+include_once('PlusProfit/AdditionalCashRegistersProfit.php');
 include_once('PlusProfit/HolidaysProfit.php');
 
-abstract class BaseClass {
+abstract class BaseMarket {
 
     protected $profit;
     protected $caseLucratoare;
@@ -28,23 +28,9 @@ abstract class BaseClass {
     }
 
     public function getProfit() {
-
         $this->profit = static::profit_initial;
-        if ($this->attachments != null || count($this->attachments) != 0) {
-            foreach ($this->attachments as $key => $value) {
-                $this->profit = $this->profit + $value->getPlusProfit();
-            }
-        }
-        usort($this->plusProfit, array("BaseClass", "sort_plusProfit"));
-        foreach ($this->plusProfit as $key => $object) {
-            $class_name = get_class($object);
-            if ($class_name == "AdditionalProfit") {
-                $dif = $this->caseLucratoare - static::case_lucratoare_initial;
-                $this->profit = $this->profit + $dif * $object->getPercentage() * $this->profit;
-            } else {
-                $this->profit = $this->profit + $this->caseLucratoare * $object->getPercentage() * $this->profit;
-            }
-        }
+        $this->addAttachmentsProft();
+        $this->calculateAdditionalProfit();
         return $this->profit;
     }
 
@@ -96,11 +82,32 @@ abstract class BaseClass {
         echo "<br>Profit Final: " . $this->getProfit();
     }
 
-    public static function sort_plusProfit($a, $b) {
+    public static function sortPlusProfit($a, $b) {
         if ($a == $b) {
             return 0;
         }
         return ($a->getOrder() < $b->getOrder()) ? -1 : 1;
+    }
+
+    public function addAttachmentsProft() {
+        if ($this->attachments != null || count($this->attachments) != 0) {
+            foreach ($this->attachments as $key => $value) {
+                $this->profit = $this->profit + $value->getPlusProfit();
+            }
+        }
+    }
+
+    public function calculateAdditionalProfit() {
+        usort($this->plusProfit, array("BaseMarket", "sortPlusProfit"));
+        foreach ($this->plusProfit as $key => $object) {
+            $class_name = get_class($object);
+            if ($class_name == "AdditionalCashRegistersProfit") {
+                $dif = $this->caseLucratoare - static::case_lucratoare_initial;
+                $this->profit = $this->profit + $dif * $object->getPercentage() * $this->profit;
+            } else {
+                $this->profit = $this->profit + $this->caseLucratoare * $object->getPercentage() * $this->profit;
+            }
+        }
     }
 
 }

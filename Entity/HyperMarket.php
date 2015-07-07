@@ -1,18 +1,18 @@
 <?php
 
-require_once('SuperClass.php');
+require_once('BaseMarket.php');
 
-class HyperMarket extends BaseClass {
+class HyperMarket extends BaseMarket{
 
     const profit_initial = 100000;
     const case_lucratoare_initial = 6;
     const case_disponibile = 10;
 
-    public function __construct($nume, $adresa, $numar_inregistrare) {
+    public function __construct() {
 
         $this->profit = self::profit_initial;
         $this->caseLucratoare = self::case_lucratoare_initial;
-        parent::__construct($nume, $adresa, $numar_inregistrare);
+        parent::__construct('hyper-market','str...',875600);
     }
 
     public function addAttachments($object) {
