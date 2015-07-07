@@ -3,17 +3,32 @@
 include_once('OrderingInterface.php');
 
 class HolidaysProfit implements OrderingInterface {
+
+    /**
+     * The supplement to add to the profit
+     */
     const percentage = 0.05;
 
-    const highPriority = 1;
+    /**
+     * The priority in the calculation of the additional profit 
+     */
+    const priority = 1;
 
+    /**
+     * Calculates the additional profit due to the holidays
+     * @param type BaseMarket
+     */
     public function calculateProfit($market) {
         $profit = $market->getProfit() + $market->getCaseLucratoare * self::percentage * $market->getProfit();
         $market->setProfit($profit);
     }
 
+    /**
+     * 
+     * @return number
+     */
     public function getOrder() {
-        return self::highPriority;
+        return self::priority;
     }
 
 }

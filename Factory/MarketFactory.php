@@ -4,9 +4,16 @@ require_once('Entity/Market.php');
 require_once('Entity/MiniMarket.php');
 require_once('Entity/SuperMarket.php');
 require_once('Entity/HyperMarket.php');
-
+/**
+ * 
+ */
 class MarketFactory {
-
+    
+/**
+ * 
+ * @param String $market_type
+ * @return BaseMarket
+ */
     public static function build($market_type) {
 
         if ($market_type == '') {
