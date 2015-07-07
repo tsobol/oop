@@ -1,12 +1,11 @@
 <?php
-class  Brutarie{
+/**
+ * Description of Brutarie
+ *
+ * @author PENTALOG\tsobol
+ */
+require_once('BaseAttachment.php');
+class  Brutarie extends BaseAttachment{
 	const plusProfit=20000;
         const label='brutarie';
-        
-	public function getPlusProfit(){
-		return self::plusProfit;
-	}
-        public function __toString() {
-            return self::label;
-        }
 }
