@@ -36,8 +36,8 @@
               echo "<p class='solid'> + Dotarile disponibile (+ profit pentru fiecare dotare)</p> ";
               $dotari = array(new Brutarie(), new Cofetarie(), new SectieVin());
               for ($j = 0; $j < 3; $j++) {
-              $object->addAttachments($dotari[$j]);
-              //Pentru SuperMarket adauga doar o dotare
+                  AttachmentManagement::addAttachment($dotari[$j], $object);
+             //Pentru SuperMarket adauga doar o dotare
               if (get_class($object) == "SuperMarket") {
               break;
               }

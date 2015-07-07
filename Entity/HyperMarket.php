@@ -19,19 +19,4 @@ class HyperMarket extends BaseMarket {
         parent::__construct(self::nume,self::adresa,self::numar_inregistrare);
     }
 
-    public function addAttachments($object) {
-        if ($this->attachments == null) {
-            array_push($this->attachments, $object);
-        } elseif (in_array($object, $this->attachments)) {
-            echo "\nDotarea deja exista pentru acest magazin\n";
-        } else {
-            array_push($this->attachments, $object);
-        }
-    }
-
-    public function removeAnAttachments($object) {
-        $key = array_search($object, $this->attachments);
-        unset($this->attachments[$key]);
-    }
-
-}
+  }

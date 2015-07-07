@@ -63,6 +63,9 @@ abstract class BaseMarket {
     public function getAttachmentsMandatoryNumber() {
         return static::attachmentsMandatoryNumber;
     }
+    public function pushAttachment($attachment){
+        array_push($this->attachments,$attachment);
+    }
 
     public function setCaseLucratoare($nr) {
         if ($nr > static::case_disponibile || $nr < static::case_lucratoare_initial) {
