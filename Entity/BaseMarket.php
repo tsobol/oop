@@ -2,6 +2,7 @@
 
 include_once('PlusProfit/AdditionalProfit.php');
 include_once('PlusProfit/HolidaysProfit.php');
+require_once('AttachmentManagement.php');
 
 abstract class BaseMarket {
 
@@ -17,6 +18,7 @@ abstract class BaseMarket {
     const case_lucratoare_initial = null;
     const case_disponibile = null;
     const profit_initial = null;
+    const attachmentsMandatoryNumber = null;
 
     public function __construct($nume, $adresa, $numarInregistrare) {
         $this->nume = $nume;
@@ -54,6 +56,14 @@ abstract class BaseMarket {
         return static::case_lucratoare_initial;
     }
 
+    public function getAttachments() {
+        return $this->attachments;
+    }
+
+    public function getAttachmentsMandatoryNumber() {
+        return static::attachmentsMandatoryNumber;
+    }
+
     public function setCaseLucratoare($nr) {
         if ($nr > static::case_disponibile || $nr < static::case_lucratoare_initial) {
             exit("\nNumar de case lucratoare invalid\n");
@@ -69,17 +79,21 @@ abstract class BaseMarket {
     }
 
     public function printData() {
-        echo "<br>Tip Market : " . get_class($this);
-        echo "<br>Numar case lucratoare: " . $this->caseLucratoare;
-        echo "<br>Numar case disponibile: " . static::case_disponibile;
-        echo "<br>Dotari: ";
-        if ($this->attachments != null) {
-            foreach ($this->attachments as $key => $value) {
-                echo $value . ", ";
+        if (AttachmentManagement::validate($this)) {
+            echo "<br>Tip Market : " . get_class($this);
+            echo "<br>Numar case lucratoare: " . $this->caseLucratoare;
+            echo "<br>Numar case disponibile: " . static::case_disponibile;
+            echo "<br>Dotari: ";
+            if ($this->attachments != null) {
+                foreach ($this->attachments as $key => $value) {
+                    echo $value . ", ";
+                }
             }
+            echo "<br>Profit initial: " . static::profit_initial;
+            echo "<br>Profit Final: " . $this->calculateProfit();
+        } else {
+            echo "You need to add some attachments";
         }
-        echo "<br>Profit initial: " . static::profit_initial;
-        echo "<br>Profit Final: " . $this->calculateProfit();
     }
 
     public static function sortPlusProfit($a, $b) {

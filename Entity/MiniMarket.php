@@ -2,8 +2,9 @@
 require_once('BaseMarket.php');
  class MiniMarket extends BaseMarket{
 	const case_disponibile=2;
-	const case_lucratoare_initial='1';
-	const profit_initial='30000';
+	const case_lucratoare_initial=1;
+	const profit_initial=30000;
+        const attachmentsMandatoryNumber = 0;
 	
 	public function __construct(){
 		$this->profit=self::profit_initial;

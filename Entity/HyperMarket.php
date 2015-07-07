@@ -2,17 +2,18 @@
 
 require_once('BaseMarket.php');
 
-class HyperMarket extends BaseMarket{
+class HyperMarket extends BaseMarket {
 
     const profit_initial = 100000;
     const case_lucratoare_initial = 6;
     const case_disponibile = 10;
+    const attachmentsMandatoryNumber = 3;
 
     public function __construct() {
 
         $this->profit = self::profit_initial;
         $this->caseLucratoare = self::case_lucratoare_initial;
-        parent::__construct('hyper-market','str...',875600);
+        parent::__construct('hyper-market', 'str...', 875600);
     }
 
     public function addAttachments($object) {
@@ -29,4 +30,5 @@ class HyperMarket extends BaseMarket{
         $key = array_search($object, $this->attachments);
         unset($this->attachments[$key]);
     }
+
 }
