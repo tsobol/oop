@@ -1,6 +1,6 @@
 <?php
 
-include_once('PlusProfit/AdditionalCashRegistersProfit.php');
+include_once('PlusProfit/AdditionalProfit.php');
 include_once('PlusProfit/HolidaysProfit.php');
 
 abstract class BaseMarket {
@@ -28,9 +28,13 @@ abstract class BaseMarket {
     }
 
     public function getProfit() {
+        return $this->profit;
+    }
+
+    public function calculateProfit() {
         $this->profit = static::profit_initial;
-        $this->addAttachmentsProft();
-        $this->calculateAdditionalProfit();
+        $this->addAttachmentsProfit();
+        $this->calculatePlusProfit();
         return $this->profit;
     }
 
@@ -56,15 +60,11 @@ abstract class BaseMarket {
         }
         $this->caseLucratoare = $nr;
         $dif = $this->caseLucratoare - static::case_lucratoare_initial;
-        // in momentul schimbarii numarului de case adaugatoare la plusprofit se adauga un obiect 
-        // additionalProfit sau se elimina
-        $additionalProfit = new AdditionalProfit();
-        if ($dif == 0 && in_array($additionalProfit, $this->plusProfit)) {
-            $key = array_search($additionalProfit, $this->plusProfit);
-            unset($this->plusProfit[$key]);
+        if ($dif == 0) {
+            $this->unsetAdditionalProfitObject();
         }
-        if ($dif != 0 && !in_array($additionalProfit, $this->plusProfit)) {
-            array_push($this->plusProfit, $additionalProfit);
+        if ($dif != 0) {
+            $this->addAdditionalProfitObject();
         }
     }
 
@@ -79,7 +79,7 @@ abstract class BaseMarket {
             }
         }
         echo "<br>Profit initial: " . static::profit_initial;
-        echo "<br>Profit Final: " . $this->getProfit();
+        echo "<br>Profit Final: " . $this->calculateProfit();
     }
 
     public static function sortPlusProfit($a, $b) {
@@ -89,7 +89,7 @@ abstract class BaseMarket {
         return ($a->getOrder() < $b->getOrder()) ? -1 : 1;
     }
 
-    public function addAttachmentsProft() {
+    public function addAttachmentsProfit() {
         if ($this->attachments != null || count($this->attachments) != 0) {
             foreach ($this->attachments as $key => $value) {
                 $this->profit = $this->profit + $value->getPlusProfit();
@@ -97,16 +97,25 @@ abstract class BaseMarket {
         }
     }
 
-    public function calculateAdditionalProfit() {
+    public function calculatePlusProfit() {
         usort($this->plusProfit, array("BaseMarket", "sortPlusProfit"));
         foreach ($this->plusProfit as $key => $object) {
-            $class_name = get_class($object);
-            if ($class_name == "AdditionalCashRegistersProfit") {
-                $dif = $this->caseLucratoare - static::case_lucratoare_initial;
-                $this->profit = $this->profit + $dif * $object->getPercentage() * $this->profit;
-            } else {
-                $this->profit = $this->profit + $this->caseLucratoare * $object->getPercentage() * $this->profit;
-            }
+            $object->calculateProfit($this);
+        }
+    }
+
+    public function addAdditionalProfitObject() {
+        $additionalProfit = new AdditionalProfit();
+        if (!in_array($additionalProfit, $this->plusProfit)) {
+            array_push($this->plusProfit, $additionalProfit);
+        }
+    }
+
+    public function unsetAdditionalProfitObject() {
+        $additionalProfit = new AdditionalProfit();
+        if (in_array($additionalProfit, $this->plusProfit)) {
+            $key = array_search($additionalProfit, $this->plusProfit);
+            unset($this->plusProfit[$key]);
         }
     }
 

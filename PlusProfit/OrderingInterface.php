@@ -1,5 +1,4 @@
 <?php
 interface OrderingInterface{
-	public static function getOrder();
+	public function getOrder();
 }
-?>
