@@ -75,7 +75,7 @@ abstract class BaseMarket {
         echo "<br>Dotari: ";
         if ($this->attachments != null) {
             foreach ($this->attachments as $key => $value) {
-                echo get_class($value) . " ";
+                echo $value . ", ";
             }
         }
         echo "<br>Profit initial: " . static::profit_initial;
