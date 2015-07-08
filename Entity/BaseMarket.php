@@ -1,30 +1,109 @@
 <?php
 
+/**
+ * @author PENTALOG\tsobol
+ */
 include_once('PlusProfit/AdditionalProfit.php');
 include_once('PlusProfit/HolidaysProfit.php');
 require_once('AttachmentManagement.php');
 
+/**
+ * The base class for the market type classes
+ * 
+ * @abstract
+ *  
+ */
 abstract class BaseMarket {
 
+    /**
+     * The profit of the market
+     * 
+     * @var float
+     */
     protected $profit;
+
+    /**
+     * The number of thw working cash registers
+     * 
+     * @var integer
+     */
     protected $caseLucratoare;
+
+    /**
+     * Identifies if it is holidays time
+     * @var boolean 
+     */
     private static $isHoliday = false;
+
+    /**
+     * The name of the market
+     * @var string
+     */
     protected $nume;
+
+    /**
+     * The address of the market
+     * 
+     * @var string 
+     */
     protected $adresa;
+
+    /**
+     * The registration number of the market
+     * 
+     * @var integer
+     */
     protected $numarInregistrare;
+
+    /**
+     * It contains the attachments of the market
+     * 
+     * @var array of BaseAttachment objects
+     */
     protected $attachments = array();
+
+    /**
+     * The array can contain at most two objects: 
+     * one instance of the HolidaysProfit class 
+     * and one instance of the AdditionalProfit class 
+     * 
+     * @var array 
+     */
     protected $plusProfit = array();
 
+    /**
+     * The initial number of the working cash registers
+     * 
+     * @var integer
+     */
     const case_lucratoare_initial = null;
+
+    /**
+     * The number of available cash registers. 
+     * This value is greater than or equal to constante case_lucratoare_initial
+     * @var integer
+     */
     const case_disponibile = null;
+
+    /**
+     * The amount of initial profit of the market.
+     * Initial profit does not contain the plus profit of the attachments,
+     * additional cash registers or Holidays 
+     * @var integer
+     */
     const profit_initial = null;
+
+    /**
+     * The required number of the attachments
+     * @var integer
+     */
     const attachmentsMandatoryNumber = null;
 
     /**
      * 
-     * @param String $nume 
-     * @param String $adresa
-     * @param int $numarInregistrare
+     * @param string $nume 
+     * @param string $adresa
+     * @param integer $numarInregistrare
      */
     public function __construct($nume, $adresa, $numarInregistrare) {
         $this->nume = $nume;
@@ -36,8 +115,8 @@ abstract class BaseMarket {
     }
 
     /**
-     * 
-     * @return type
+     *  
+     * @return float
      */
     public function getProfit() {
         return $this->profit;
@@ -45,7 +124,7 @@ abstract class BaseMarket {
 
     /**
      * 
-     * @param integer $profit
+     * @param integer 
      */
     public function setProfit($profit) {
         $this->profit = $profit;
@@ -53,35 +132,59 @@ abstract class BaseMarket {
 
     /**
      * 
-     * @return type
+     * @return integer
      */
     public function getCaseLucratoare() {
         return $this->caseLucratoare;
     }
 
+    /**
+     * 
+     * @return integer
+     */
     public function getCaseDisponibile() {
         return static::case_disponibile;
     }
 
+    /**
+     * 
+     * @return integer
+     */
     public function getCaseLucratoareInitial() {
         return static::case_lucratoare_initial;
     }
 
+    /**
+     * 
+     * @return array
+     */
     public function getAttachments() {
         return $this->attachments;
     }
 
-    public function getAttachmentsMandatoryNumber() {
-        return static::attachmentsMandatoryNumber;
-    }
-
-    public function pushAttachment($attachment) {
-        array_push($this->attachments, $attachment);
+    /**
+     * Add an attachment to the market 
+     * 
+     * @param BaseAttachment $attachment
+     * @return boolean: true if the attachment was added, false if not
+     */
+    public function addAttachment(BaseAttachment $attachment) {
+        if ($this->attachments < static::attachmentsMandatoryNumber) {
+            if (!in_array($attachment, $this->attachments)) {
+                array_push($this->attachments, $attachment);
+                $status = true;
+            } else {
+                $status = false;
+            }
+        } else {
+            $status = false;
+        }
+        return $status;
     }
 
     /**
      * 
-     * @param type $nr
+     * @param integer $nr
      */
     public function setCaseLucratoare($nr) {
         if ($nr > static::case_disponibile || $nr < static::case_lucratoare_initial) {
@@ -97,6 +200,13 @@ abstract class BaseMarket {
         }
     }
 
+    /**
+     * Calculate the total amount of the profit by adding to the initial
+     * profit the supplimentary profit due to the attachments,
+     * additional cash registers an Holidays 
+     * 
+     * @return float
+     */
     public function calculateProfit() {
         $this->profit = static::profit_initial;
         $this->addAttachmentsProfit();
@@ -105,10 +215,11 @@ abstract class BaseMarket {
     }
 
     /**
-     * 
+     * Display the information of the market 
+     * if the required number of attachments is satisfied 
      */
     public function printData() {
-        if (AttachmentManagement::validate($this)) {
+        if (AttachmentManagement::validate($this->attachments, static::attachmentsMandatoryNumber)) {
             echo "<br>Tip Market : " . get_class($this);
             echo "<br>Numar case lucratoare: " . $this->caseLucratoare;
             echo "<br>Numar case disponibile: " . static::case_disponibile;
@@ -126,8 +237,10 @@ abstract class BaseMarket {
     }
 
     /**
-     * @static 
-     * Sort the plusProfit array from the highest priority (1) to the lower (other number)
+     * @static
+     * 
+     * Sort the array attribute plusProfit from the highest priority (1) 
+     * to the lower priority (other number)
      */
     public static function sortPlusProfit($a, $b) {
         if ($a == $b) {
@@ -137,7 +250,7 @@ abstract class BaseMarket {
     }
 
     /**
-     * Add to the initial profit the attachments' profit
+     * Add to the initial profit the plus profit of the attachments
      */
     public function addAttachmentsProfit() {
         if ($this->attachments != null || count($this->attachments) != 0) {
@@ -159,7 +272,7 @@ abstract class BaseMarket {
     }
 
     /**
-     * Insert int the plusProfit array an additionalProfit object 
+     * Insert in the plusProfit array an additionalProfit object 
      */
     public function addAdditionalProfitObject() {
         $additionalProfit = new AdditionalProfit();
