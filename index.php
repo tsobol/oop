@@ -19,7 +19,7 @@
             for ($i = 0; $i < 4; $i++) {
                 echo "<p class='title'>-------$market_types[$i]-------</p>";
                 echo "<p class='solid'> setari initiale </p>";
-                $object = MarketFactory::build("$market_types[$i]", 'name', 'address', 497467);
+                $object = MarketFactory::build("$market_types[$i]");
                 $object->printData();
 
 

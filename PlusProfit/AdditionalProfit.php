@@ -5,9 +5,9 @@
  *
  * @author PENTALOG\tsobol
  */
-require_once('OrderingInterface.php');
+require_once('BaseProfit.php');
 
-class AdditionalProfit implements OrderingInterface {
+class AdditionalProfit extends BaseProfit {
 
     /**
      * 
@@ -19,24 +19,13 @@ class AdditionalProfit implements OrderingInterface {
      * The priority in the calculation of the additional profit 
      */
     const priority = 2;
-
+    
     /**
      * 
-     * @return number
+     * @param integer $count (Number of the additional cash registers)
      */
-    public function getOrder() {
-        return self::priority;
-    }
-
-    /**
-     * Calculates the additional profit due to the supplimentary number of cash registers
-     *    
-     * @param type BaseMarket
-     */
-    public function calculateProfit($market) {
-        $dif = $market->getCaseLucratoare() - $market->getCaseLucratoareInitial(); 
-        $profit = $market->getProfit() + $dif * self::percentage * $market->getProfit();
-        $market->setProfit($profit);
+    public function __construct($count=0) {
+        $this->count = $count;
     }
 
 }

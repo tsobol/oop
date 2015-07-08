@@ -110,7 +110,7 @@ abstract class BaseMarket {
         $this->adresa = $adresa;
         $this->numarInregistrare = $numarInregistrare;
         if (self::$isHoliday == true) {
-            array_push($this->plusProfit, new HolidaysProfit());
+            array_push($this->plusProfit, new HolidaysProfit(static::case_lucratoare_initial));
         }
     }
 
@@ -163,23 +163,34 @@ abstract class BaseMarket {
     }
 
     /**
+     * 
+     */
+
+    /**
      * Add an attachment to the market 
      * 
      * @param BaseAttachment $attachment
-     * @return boolean: true if the attachment was added, false if not
      */
     public function addAttachment(BaseAttachment $attachment) {
+        if ($this->validateAttachment($attachment)) {
+            array_push($this->attachments, $attachment);
+        } else {
+            exit("<br>Can not add more attachments or this attachment already exist<br>");
+        }
+    }
+
+    /**
+     * 
+     * @param BaseAttachment $attachment
+     * @return boolean 
+     */
+    public function validateAttachment($attachment) {
         if (count($this->attachments) < static::attachmentsMandatoryNumber) {
             if (!in_array($attachment, $this->attachments)) {
-                array_push($this->attachments, $attachment);
-                $status = true;
-            } else {
-                $status = false;
+                return true;
             }
-        } else {
-            $status = false;
         }
-        return $status;
+        return false;
     }
 
     /**
@@ -187,16 +198,59 @@ abstract class BaseMarket {
      * @param integer $nr
      */
     public function setCaseLucratoare($nr) {
-        if ($nr > static::case_disponibile || $nr < static::case_lucratoare_initial) {
-            exit("\nNumar de case lucratoare invalid\n");
+        if ($this->validateNrCaseLucratoare($nr)) {
+            $this->caseLucratoare = $nr;
+        } else {
+            exit('<br>Numar de case lucratoare invalid');
         }
-        $this->caseLucratoare = $nr;
-        $dif = $this->caseLucratoare - static::case_lucratoare_initial;
-        if ($dif == 0) {
+
+        $this->updatePlusProfitArray();
+    }
+
+    /**
+     * 
+     * @param integer $nr
+     * @return boolean
+     */
+    public function validateNrCaseLucratoare($nr) {
+        if ($nr > static::case_disponibile || $nr < static::case_lucratoare_initial) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * @return integer
+     */
+    public function getCaseLucratoareSuplimentare() {
+        return $this->caseLucratoare - static::case_lucratoare_initial;
+    }
+    
+    public function updatePlusProfitArray(){
+        
+        $this->updateHolidayProfitObject();
+        $this->updateAdditionalProfitObject();
+    }
+    
+    public function updateHolidayProfitObject(){
+        $this->unsetHolidayProfitObject();
+        $holidayProfit=new HolidaysProfit($this->caseLucratoare);
+        array_push($this->plusProfit, $holidayProfit);
+    }
+    /**
+     * Update plusProfit array by adding or eliminate an additionalProfitObject
+     * 
+     * @param type $difference
+     */
+    public function updateAdditionalProfitObject() {
+        $difference=$this->getCaseLucratoareSuplimentare();
+        if ($difference == 0) {
             $this->unsetAdditionalProfitObject();
         }
-        if ($dif != 0) {
-            $this->addAdditionalProfitObject();
+        if ($difference != 0) {
+            $this->addAdditionalProfitObject($difference);
         }
     }
 
@@ -269,16 +323,16 @@ abstract class BaseMarket {
         foreach ($this->plusProfit as $key => $object) {
             $object->calculateProfit($this);
         }
+        
     }
 
     /**
      * Insert in the plusProfit array an additionalProfit object 
      */
-    public function addAdditionalProfitObject() {
-        $additionalProfit = new AdditionalProfit();
-        if (!in_array($additionalProfit, $this->plusProfit)) {
-            array_push($this->plusProfit, $additionalProfit);
-        }
+    public function addAdditionalProfitObject($caseSuplimentare) {
+        $this->unsetAdditionalProfitObject();
+        array_push($this->plusProfit, new AdditionalProfit($caseSuplimentare));
+        
     }
 
     /**
@@ -288,6 +342,17 @@ abstract class BaseMarket {
         $additionalProfit = new AdditionalProfit();
         if (in_array($additionalProfit, $this->plusProfit)) {
             $key = array_search($additionalProfit, $this->plusProfit);
+            unset($this->plusProfit[$key]);
+        }
+    }
+    /**
+     * Delete from the plusProfitArray the holidayProfit object
+     */
+    
+    public function unsetHolidayProfitObject() {
+        $holidayProfit = new HolidaysProfit();
+        if (in_array($holidayProfit, $this->plusProfit)) {
+            $key = array_search($holidayProfit, $this->plusProfit);
             unset($this->plusProfit[$key]);
         }
     }

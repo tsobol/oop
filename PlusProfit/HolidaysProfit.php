@@ -1,8 +1,13 @@
 <?php
 
-include_once('OrderingInterface.php');
+/**
+ * Description of AdditionalProfit
+ *
+ * @author PENTALOG\tsobol
+ */
+require_once('BaseProfit.php');
 
-class HolidaysProfit implements OrderingInterface {
+class HolidaysProfit extends BaseProfit {
 
     /**
      * The supplement to add to the profit
@@ -13,22 +18,12 @@ class HolidaysProfit implements OrderingInterface {
      * The priority in the calculation of the additional profit 
      */
     const priority = 1;
-
-    /**
-     * Calculates the additional profit due to the holidays
-     * @param type BaseMarket
-     */
-    public function calculateProfit($market) {
-        $profit = $market->getProfit() + $market->getCaseLucratoare * self::percentage * $market->getProfit();
-        $market->setProfit($profit);
-    }
-
+    
     /**
      * 
-     * @return number
+     * @param integer $count (Total number of the working cash registers)
      */
-    public function getOrder() {
-        return self::priority;
+    public function __construct($count=0) {
+        $this->count=$count;
     }
-
 }
