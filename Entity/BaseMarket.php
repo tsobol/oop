@@ -169,7 +169,7 @@ abstract class BaseMarket {
      * @return boolean: true if the attachment was added, false if not
      */
     public function addAttachment(BaseAttachment $attachment) {
-        if ($this->attachments < static::attachmentsMandatoryNumber) {
+        if (count($this->attachments) < static::attachmentsMandatoryNumber) {
             if (!in_array($attachment, $this->attachments)) {
                 array_push($this->attachments, $attachment);
                 $status = true;
