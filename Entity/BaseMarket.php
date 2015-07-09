@@ -175,7 +175,7 @@ abstract class BaseMarket {
         if ($this->validateAttachment($attachment)) {
             array_push($this->attachments, $attachment);
         } else {
-            exit("<br>Can not add more attachments or this attachment already exist<br>");
+            exit("<br>Can not add more attachments or this attachment already is added<br>");
         }
     }
 
@@ -227,30 +227,31 @@ abstract class BaseMarket {
     public function getCaseLucratoareSuplimentare() {
         return $this->caseLucratoare - static::case_lucratoare_initial;
     }
-    
-    public function updatePlusProfitArray(){
-        
+
+    public function updatePlusProfitArray() {
+
         $this->updateHolidayProfitObject();
         $this->updateAdditionalProfitObject();
     }
-    
-    public function updateHolidayProfitObject(){
-        $this->unsetHolidayProfitObject();
-        $holidayProfit=new HolidaysProfit($this->caseLucratoare);
-        array_push($this->plusProfit, $holidayProfit);
-    }
+
     /**
-     * Update plusProfit array by adding or eliminate an additionalProfitObject
-     * 
-     * @param type $difference
+     * Update plusProfit array by adding or eliminate an HolifayProfit object
+     */
+    public function updateHolidayProfitObject() {
+       $this->unsetAProfitObject("HolidayProfit");
+        if (self::$isHoliday == true) {            
+            $this->addHolidayProfitObject($this->getCaseLucratoare());
+        }
+    }
+
+    /**
+     * Update plusProfit array by adding or eliminate an AdditionalProfit object
      */
     public function updateAdditionalProfitObject() {
-        $difference=$this->getCaseLucratoareSuplimentare();
-        if ($difference == 0) {
-            $this->unsetAdditionalProfitObject();
-        }
-        if ($difference != 0) {
-            $this->addAdditionalProfitObject($difference);
+        $caseSuplimentare = $this->getCaseLucratoareSuplimentare();
+        $this->unsetAProfitObject("AdditionalProfit");
+        if ($caseSuplimentare != 0) {
+            $this->addAdditionalProfitObject($caseSuplimentare);
         }
     }
 
@@ -316,44 +317,42 @@ abstract class BaseMarket {
 
     /**
      * Calculate the additional profit due to the supplimentary cash registers
-     * and the holidays
+     * and the holidays. This information is mantained in pluProfit array.
      */
     public function calculatePlusProfit() {
         usort($this->plusProfit, array("BaseMarket", "sortPlusProfit"));
         foreach ($this->plusProfit as $key => $object) {
-            $object->calculateProfit($this);
+            $newProfit = $object->calculateProfit($this->getProfit());
+            $this->profit = $newProfit;
         }
-        
     }
 
     /**
-     * Insert in the plusProfit array an additionalProfit object 
+     * Insert in the plusProfit array an AdditionalProfit object 
      */
     public function addAdditionalProfitObject($caseSuplimentare) {
-        $this->unsetAdditionalProfitObject();
-        array_push($this->plusProfit, new AdditionalProfit($caseSuplimentare));
-        
+        $additionalProfitObject = new AdditionalProfit($caseSuplimentare);
+        array_push($this->plusProfit, $additionalProfitObject);
+    }
+    /**
+     * Insert in the plusProfit array an HolidayProfit object 
+     */
+
+    public function addHolidayProfitObject($totalCase) {
+        $holidayProfitObject = new HolidaysProfit($totalCase);
+        array_push($this->plusProfit, $holidayProfitObject);
     }
 
     /**
-     * Delete from the plusProfit array the additionalProfit object
+     * Eliminate form plusProfit array a profit object
+     * 
+     * @param string $profitType
      */
-    public function unsetAdditionalProfitObject() {
-        $additionalProfit = new AdditionalProfit();
-        if (in_array($additionalProfit, $this->plusProfit)) {
-            $key = array_search($additionalProfit, $this->plusProfit);
-            unset($this->plusProfit[$key]);
-        }
-    }
-    /**
-     * Delete from the plusProfitArray the holidayProfit object
-     */
-    
-    public function unsetHolidayProfitObject() {
-        $holidayProfit = new HolidaysProfit();
-        if (in_array($holidayProfit, $this->plusProfit)) {
-            $key = array_search($holidayProfit, $this->plusProfit);
-            unset($this->plusProfit[$key]);
+    public function unsetAProfitObject($profitType) {
+        foreach ($this->plusProfit as $key => $object) {
+            if (get_class($object) === $profitType) {
+                unset($this->plusProfit[$key]);
+            }
         }
     }
 

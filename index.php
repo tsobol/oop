@@ -15,7 +15,7 @@
     class MainClass {
 
         public static function main() {
-            $market_types = array("MiniMarket", "Market", "SuperMarket", "HyperMarket");
+         $market_types = array("MiniMarket", "Market", "SuperMarket", "HyperMarket");
             for ($i = 0; $i < 4; $i++) {
                 echo "<p class='title'>-------$market_types[$i]-------</p>";
                 echo "<p class='solid'> setari initiale </p>";

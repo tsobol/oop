@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/Cofetarie.php</file>
             <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/BaseMarket.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Factory/MarketFactory.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/BaseAttachment.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/index.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/Brutarie.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/Entity/AttachmentManagement.php</file>
-            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/OrderingInterface.php</file>
+            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/AdditionalProfit.php</file>
+            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/BaseProfit.php</file>
+            <file>file:/home/tsobol/NetBeansProjects/OOP/PlusProfit/HolidaysProfit.php</file>
         </group>
     </open-files>
 </project-private>
