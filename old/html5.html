@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>new on html5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+
+        <style>
+            body {
+                font-family:Verdana,sans-serif;font-size:0.8em;
+            }
+            div#header,div#footer,div#content,div#post {
+                border:1px solid grey;
+                margin:5px;margin-bottom:15px;padding:8px;
+                background-color:white;
+            }
+            div#header,div#footer {
+                color:white;background-color:#444;margin-bottom:5px;
+            }
+            div#content {
+                background-color:#ddd;
+            }
+            div#menu ul  {
+                margin:0;padding:0;
+            }
+            div#menu ul li {
+                display:inline; margin:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <header>
+                <h3>Posted by: Apple Lover</h3>
+            </header>
+            <p>I love apples, my favourite kind are Granny Smiths</p>
+        </article>
+        <form>
+            <input type="search" id="mySearch" autocomplete="" />
+            <input type="number" min="5" max="18" step="0.5" value="9" name="shoe-size" />
+            <input id="skill" type="range" min="1" max="100" value="0" />
+            <input id="startdate" name="startdate" min="2012-01-01" max="2013-01-01" type="date">
+            <input id="entry-day-time" name="entry-day-time" type="datetime" autofocus>
+        </form>
+        <label>Your favorite fruit:
+            <datalist id="fruits">
+                <option value="Blackberry">Blackberry</option>
+                <option value="Blackcurrant">Blackcurrant</option>
+                <option value="Blueberry">Blueberry</option>
+                <!-- … -->
+            </datalist>
+            If other, please specify:
+            <input type="text" name="fruit" list="fruits">
+        </label>
+        <details>Defines additional details that the user can view or hide</details>
+        <div>
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+
+        </div>
+        <div style="display: inline; border: 3px solid #8AC007; width: 50px; ">div inline 1</div>
+         <div style="display: inline; border: 3px solid #8AC007; width: 100px;">div inline 2</div>
+         
+         
+    </body>
+</html>

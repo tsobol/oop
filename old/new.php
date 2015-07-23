@@ -8,8 +8,8 @@
         <title>TEST</title>
 
         <!-- Bootstrap -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <script href="../jquery-2.1.4.min.js"/>
     </head>
     <body>
         <div class="page-header ">
@@ -70,7 +70,7 @@
 
             </div>
         </div>
-        
+
     </body>
 </html>
 

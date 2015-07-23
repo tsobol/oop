@@ -1,0 +1,46 @@
+ul.menu {list-style-type: none;
+        }
+
+ul.menu li {display: inline-table;
+         bottom: 0px;
+         vertical-align: bottom;
+         float:none;
+}
+ol, ul {
+    margin-bottom: 0px;
+}
+
+td {vertical-align: bottom !important;}
+ 
+header a { color: #405061;
+           font-size: 20px;
+         }
+
+header a:hover { color: #3a87ad;
+        text-decoration: none;
+}
+header hr { display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+footer div {
+    height: 40px;
+}
+
+footer hr {  height: 12px;
+             border: 0; 
+             box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);}
+
+footer p { text-align: right;
+           font-size: 14px;
+           font-style: "Graphik Web", sans-serif;
+           margin-right: 10px;
+         }
+
+
+
