@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <script type="text/javascript" src="../bootstrap/jquery.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet"  href="../CSS/general.css">
+        <link rel="stylesheet"  href="../CSS/insert.css">       
+    </head>
+    <body background="gray">
+
+        <header>
+            <br>
+            <div class="container-fluid">
+                <div class="outer-menu">
+                    <div class="inner-menu">
+                        <ul class="menu" >
+                            <li class="col-md-1 col-md-offset-2 col-xs-12 col-sm-2 col-sm-offset-1"><a href="#">Markets</a></li>
+                            <li class="dropdown active col-md-2 col-xs-12 col-sm-2">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">MiniMarkets                         
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">miniMarket1</a></li>
+                                    <li><a href="#">miniMarket2</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-md-1 hidden-xs hidden-sm"><a href="../index.php"><image src="../images/logo.png"/></a> </li>
+                            <li class="col-md-1 col-xs-12 col-sm-2"><a href="#">SuperMarkets</a></li>
+                            <li class="dropdown col-md-2 col-xs-12 col-sm-2">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">HyperMarkets
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">market1</a></li>
+                                    <li><a href="#">market2</a></li>
+                                    <li><a href="#">market3</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </header>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="panel panel-info panel-market">
+                        <div class="panel-heading">Adaugă un market</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Tip:</label>
+                                    <select>
+                                        <option>MiniMarket</option>
+                                        <option>Market</option>
+                                        <option>SuperMarket</option>
+                                        <option>HyperMarket</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12" for="name">Nume:</label>
+                                    <input class="form-control col-md-6" type="text" placeholder="Introduceti numele">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12" for="adresa">Adresa:</label>
+                                    <input class="form-control col-md-6" type="text" placeholder="Introduceti adresa">    
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12" for="numarInregistrare">Număr de înregistrare:</label>
+                                    <input class="form-control col-md-6" type="text" placeholder="Introduceti numarul de inregistrare">
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Numărul de case disponibile:</label>
+                                    <input  type="text" class="form-control col-md-6">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Numărul minim de case lucrătoare:</label>
+                                    <input type="text" class="form-control col-md-6">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Profit minim garantat:</label>
+                                    <input type="text" class="form-control col-md-6">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Dotări:</label>
+                                    <select>
+                                        <option>Brutărie</option>
+                                        <option> Cofetărie </option>
+                                        <option>  Secție de vin</option>
+                                    </select>                                
+                                </div>
+                                <hr>
+                                <input id="input-insert" type="submit" value="Salvează" class="form-control btn-succes"> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="panel panel-info panel-attachment">
+                        <div class="panel-heading">Adaugă o dotare</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12" for="name">Nume:</label>
+                                    <input class="form-control col-md-6" type="text">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Profit:</label>
+                                    <input class="form-control col-md-6" type="text">                              
+                                </div>
+                                <hr>
+                                <input id="input-insert" type="submit" value="Salvează" class="form-control btn-succes"> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <footer>
+            <div class="footer">
+                <div class="inner-footer">
+                    <div id="footer-text"><p>Created and designed by: Tatiana Sobol </p></div> 
+                </div>
+            </div>
+        </footer> 
+    </body>
+</html>
