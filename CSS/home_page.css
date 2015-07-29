@@ -5,16 +5,20 @@
     background-size: cover;
     overflow: hidden;
     margin:auto;
-    padding: 130px;
+    padding-top: 10%;
+    padding-bottom:10%;
 } 
+
+#site-title{
+    width:70%;
+}
+
 
 #message {
     position: relative;
     text-align: center;
     font-size: 50px;
     color: #405061;
-    margin-bottom: 110px;
-    margin-top: 80px;
 }
 
 #add-menu-picture{background-image: url("../images/add_complete.jpg");}
@@ -25,41 +29,58 @@
 
 #analyze-menu-picture{background-image: url("../images/analyze_complete.jpg");}
 
-.image-swap {
+#xs-add-menu-picture{background-image: url("../images/rsz_add_complete.jpg");}
+
+#xs-register-menu-picture{background-image: url("../images/rsz_register_complete.jpg");}
+
+#xs-compare-menu-picture{background-image: url("../images/rsz_compare_complete.jpg");}
+
+#xs-analyze-menu-picture{background-image: url("../images/rsz_analyze_complete.jpg");}
+
+.lg-image{
     width: 400px;
     height: 240px;
+}
+.image-swap {
     margin-bottom:40px;
     opacity: 0;
     background-position:top;
+    background-size: cover;
     background-repeat: no-repeat;        
     position: relative;  
+   }
+.xs-image{
+    width: 200px;
+    height: 120px;
+    margin-left:auto;
+    margin-right: auto;
 }
+
 div.space{
     width: 10%;
-    }
+}
 .image-swap:hover {
     background-position: 0 100%;
 }
-
 .col-md-offset-3{
     margin-left: 20%;
 }
 
 .arrow {
     margin:auto; 
+    margin-bottom: 40px;
     position: relative;
     width: 160px;
-    padding: 20px;
     animation-name: arrow;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    padding: 3%;
 
 }
 
 #arrow_image {
     width: 100%;
     height: 100%;
-    margin-top: 10px;
 }
 
 @keyframes arrow {

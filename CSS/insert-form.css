@@ -1,0 +1,44 @@
+#input-insert{
+    width: 120px;
+    height: 40px;
+    margin:auto;
+    background-color: #70D1E3;
+    color: white;
+}
+
+.insert-form {
+    
+     border-color: #6DABCC;
+}
+
+.insert-form > .panel-heading{
+     background-color:  	#7abfe3;
+    border-color: #6DABCC;
+    color: white;
+}
+
+.form-horizontal .control-label{
+    text-align: left;
+
+}
+.form-control{
+    width: 60%
+}
+select {
+    width: 60%;
+    height: 34px;                    
+}
+input{
+    width: 30%;}
+
+input[type='number']{
+    width: 30%;}
+ 
+.checkbox input[type="checkbox"]{
+    margin-left: 20%;
+}
+
+.checkbox label{
+    padding-left: 0px;
+    font-weight: bold;
+ }

@@ -9,19 +9,38 @@ and open the template in the editor.
     <div class="container-fluid">
         <div class="outer-menu">
             <div class="inner-menu">
-                <ul class="menu" >
-                    <li class="col-md-1 col-md-offset-2 col-xs-12 col-sm-2 col-sm-offset-1"><a href="#">Markets</a></li>
-                    <li class="dropdown active col-md-2 col-xs-12 col-sm-2">
-                        <a  href="/View/mini-market-all.php" data-target="/View/mini-market-all.php">MiniMarkets</a>         
+                <ul class="menu" style="position: relative;">
+                    <li class="hidden-xs col-md-1 col-md-offset-2 col-sm-2 ">
+                        <a class="lg-menu" href="/View/mini-market-all.php">Markets</a></li>
+                    <li class="hidden-xs col-md-2 col-sm-2">
+                        <a class="lg-menu" href="/View/mini-market-all.php" data-target="/View/mini-market-all.php">MiniMarkets</a>         
                     </li>
-                    <li class="col-md-1 hidden-xs hidden-sm"><a href="../index.php"><image src="../images/logo.png"/></a> </li>
-                    <li class="col-md-1 col-xs-12 col-sm-2"><a href="#">SuperMarkets</a></li>
-                    <li class="dropdown col-md-2 col-xs-12 col-sm-2">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">HyperMarkets</a>
-                    </li>               
+                    <li class="col-md-1 col-sm-2"><a  href="../index.php"><image src="../images/logo.png"/></a> </li>
+                    <li class=" hidden-xs col-md-1  col-sm-2"><a class="lg-menu" href="/View/mini-market-all.php">SuperMarkets</a></li>
+                    <li class="hidden-xs col-md-2  col-sm-2">
+                        <a class="lg-menu" href="/View/mini-market-all.php">HyperMarkets</a>
+                    </li>             
+                    <li style="position: absolute; display: inline; right: 60px;" class=" hidden-sm hidden-md hidden-lg">
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <b class="glyphicon glyphicon-list"></b>
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li><a  href="/View/mini-market-all.php">minimarkets</a></li>
+                                <li><a href="/View/mini-market-all.php">markets</a></li>
+                                <li><a href="/View/mini-market-all.php">supermarkets</a></li>
+                                <li><a href="/View/mini-market-all.php">hypermarkets</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
     <hr>
 </header>
+<script>
+    $('#xs-menu').click(function () {
+
+    });
+</script>

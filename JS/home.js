@@ -17,17 +17,8 @@ $(window).scroll(function () {
         if (bottom_of_window > bottom_of_image) {
             $(this).css('visibility', 'visible');
             $(this).animate({'opacity': '1'}, 500);
-            console.log('OPACITY=1')
         }
-       /* else
-        {
-            if (!checkVisibility($(this))) {
-                $(this).css('visibility', 'hidden');
-                console.log('invisible element');
-            }
-
-        }*/
-       
+     
     });
 
     function checkVisibility(element) {

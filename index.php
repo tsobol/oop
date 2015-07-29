@@ -3,12 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script type="text/javascript" src="../bootstrap/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="JS/home.js"></script>
         <link rel="stylesheet"  href="../CSS/general.css">
         <link rel="stylesheet"  href="CSS/home_page.css">
+         <link rel="stylesheet"  href="../CSS/styles.css">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>TEST</title>
 
@@ -21,26 +23,34 @@
         <main>
             <br>
             <div class="jumbotron">
-                <div class="container-fluid">
+                <div id="site-title" class="container-fluid">
                     <h1 style="color:white; text-align: center; " >Manage your Markets</h1>
                 </div>
             </div>
             <br>
             <br>
             <div class="arrow">
-                <image id="arrow_image" src="../images/arrow.png"/>
+                <image class="responsive" id="arrow_image" src="../images/arrow.png"/>
             </div>
             <div class="container">
-                <p id="message">WHAT CAN YOU DO</p>
-                <a style="display:block" href="View/form-insert.html">
-                    <div class="col-md-3 col-md-offset-1 col-sm-3 image-swap" id="add-menu-picture"></div>
+                <p id="message">WHAT YOU CAN DO</p>
+                <a style="display:block" href="View/add.php">
+                    <div class="hidden-xs col-md-3 col-md-offset-1 col-sm-offset-3 lg-image image-swap" id="add-menu-picture"></div>
                 </a>
-                <div class="col-md-3 col-md-offset-1 col-sm-3 image-swap" id="register-menu-picture"></div>
-                <div class="col-md-3 col-md-offset-1 col-sm-3 image-swap" id="analyze-menu-picture"></div>
-                <div class="col-md-3 col-md-offset-1 col-sm-3 image-swap" id="compare-menu-picture"></div>
+                <div class="hidden-xs col-md-3 col-md-offset-1 col-sm-offset-3 lg-image image-swap" id="register-menu-picture"></div>
+                <div class=" hidden-xs col-md-3 col-md-offset-1 col-sm-offset-3 lg-image image-swap" id="analyze-menu-picture"></div>
+                <div class="hidden-xs col-md-3 col-md-offset-1 col-sm-offset-3 lg-image  image-swap" id="compare-menu-picture"></div>
+                <a style="display:block" href="View/form-insert.html">
+                    <div class="visible-xs   xs-image image-swap" id="xs-add-menu-picture"></div>
+                </a>
+                <div class="visible-xs  xs-image image-swap" id="xs-register-menu-picture"></div>
+                <div class="visible-xs xs-image image-swap" id="xs-analyze-menu-picture"></div>
+                <div class="visible-xs  xs-image image-swap" id="xs-compare-menu-picture"></div>
+
+
             </div>
         </main>
 
 
-       <?php require_once('View/footer.html') ?>
+        <?php require_once('View/footer.html') ?>
     </body>
