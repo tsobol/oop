@@ -1,25 +1,6 @@
 #search-bar{width: 30%;
             margin: auto;}
-div.footer {
-    height: 90px;
-    background-color: #4F5759;
-    position:fixed;
-    margin: auto;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
 
-div.inner-footer{
-    width: 100%;
-}
-
-
-#footer-text{
-   text-align: center;
-    color: white;
-    margin-top: 0;
-}
 .thumbnail{
     width:210px;
     height:210px;
