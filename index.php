@@ -55,8 +55,8 @@
                     </div>
                 </main>
             </div>
-            <div id="footer">
-                <?php require_once('View/footer.html') ?>
-            </div>
+        </div>
+        <div id="footer">
+            <?php require_once('View/footer.html') ?>
         </div>
     </body>

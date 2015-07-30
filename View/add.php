@@ -110,9 +110,9 @@ and open the template in the editor.
                 <br>
                 <br>
             </div>
-            <div id="footer">
-                <?php require_once('footer.html') ?>
-            </div>
+        </div>
+        <div id="footer">
+            <?php require_once('footer.html') ?>
         </div>
     </body>
 </html>
