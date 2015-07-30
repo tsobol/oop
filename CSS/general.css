@@ -23,6 +23,7 @@ header a.lg-menu { color: #405061;
 header a.lg-menu:hover { color: #3a87ad;
                          text-decoration: none;
 }
+
 header hr { display: block;
             margin-top: 0.5em;
             margin-bottom: 0.5em;
@@ -66,14 +67,6 @@ a.social-icons:active {
     font-size: 10px;
 }
 
-ul.dropdown-menu{
-    width: 70px;
-    position: relative;
-    left: 70%;
-    top:100px;
-    margin-right: auto;
-    margin-bottom: auto;
-}
 div.image-swap{
     background-size: cover;
 }
