@@ -9,7 +9,7 @@
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="JS/home.js"></script>
         <link rel="stylesheet/less" type="text/css" href="../CSS/general.less" />
-        <link rel="stylesheet"  href="CSS/home_page.css">
+        <link rel="stylesheet/less" type="text/css" href="../CSS/home-page.less" />
         <link rel="stylesheet"  href="../CSS/styles.css">
         <script src="less.js" type="text/javascript"></script>
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->

@@ -13,9 +13,10 @@ and open the template in the editor.
         <script type="text/javascript" src="../bootstrap/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../JS/add-market.js"></script>
-        <link rel="stylesheet"  href="../CSS/insert.css">  
-        <link rel="stylesheet"  href="../CSS/general.css">
+        <link rel="stylesheet/less" type="text/css" href="../CSS/insert.less" />
+        <link rel="stylesheet/less" type="text/css" href="../CSS/general.less" />
         <link rel="stylesheet"  href="../CSS/styles.css">
+         <script src="../less.js" type="text/javascript"></script>
         <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     </head>

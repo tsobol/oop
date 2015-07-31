@@ -1,20 +1,26 @@
+@img-width: 200px;
+@img-height: 200px;
+
 #search-bar{width: 30%;
             margin: auto;}
 
 .thumbnail{
-    width:210px;
-    height:210px;
+    width:@img-width+10;
+    height:@img-height+10;
     margin-bottom: 0;
+    
+    &:hover{
+        text-decoration-style: none;
+    }
 }
-.thumbnail :hover{
-    text-decoration-style: none;
-}
+
 figcaption{
     margin-top: 5px;
-}
-figcaption p{
-    text-align: center;
-    color: #2a4451;
+    
+    p{
+        text-align: center;
+        color: #2a4451;
+    }
 }
 .row{
     margin-bottom: 30px;
@@ -24,13 +30,10 @@ g rect{
     fill: #2198d5;
 }
 
-tspan{
+text + rect, tspan, [text-anchor="end"]{
     display: none;
 }
 
-text + rect{
-    display: none;
-}
 #top{width:100%;
      height:420px;
      margin-top: 30px;}
@@ -40,14 +43,17 @@ div.top-chart p{
     font-size: 20px;
     color: #146189;
 }
-[text-anchor="end"]{
-    display: none;
-}
+
 .panel-image-gallery{
     overflow-y:scroll;
     width:100%;
     height: 500px;
 }
+
 .single-image{
     margin-bottom: 30px;
+    img{
+        width: @img-width;
+        height: @img-height;
+    }
 }

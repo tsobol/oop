@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Minimarkets</title>
@@ -12,11 +7,12 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script type="text/javascript" src="../bootstrap/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-        <link rel="stylesheet"  href="../CSS/general.css">
-        <link rel="stylesheet"  href="../CSS/mini-market-all.css">      
+        <link rel="stylesheet/less" type="text/css" href="../CSS/general.less" />
+        <link rel="stylesheet/less" type="text/css" href="../CSS/mini-market-all.less" />
         <script src="/highcharts/js/jquery.min.js"></script>
         <script src="/highcharts/js/highcharts.js"></script>
         <link rel="stylesheet"  href="../CSS/styles.css">
+        <script src="../less.js" type="text/javascript"></script>
         <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
         <script>
@@ -73,7 +69,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-11 single-image">
                                     <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store1.jpg" alt="Kaufland" style="width:200px;height:200px">
+                                            <img src="../images/store1.jpg" alt="Kaufland" >
                                             <figcaption><p >Kaufland</p></figcaption>
                                         </figure> 
 
@@ -82,7 +78,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
                                     <a href="../images/store2.jpeg" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store2.jpeg" alt="Nr.1" style="width:200px;height:200px;">
+                                            <img src="../images/store2.jpeg" alt="Nr.1">
                                             <figcaption><p>Nr.1</p></figcaption>
                                         </figure>
                                     </a>
@@ -90,7 +86,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
                                     <a href="../images/store3.jpeg" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store3.jpeg" alt="Nr.1" style="width:200px;height:200px;">
+                                            <img src="../images/store3.jpeg" alt="Nr.1" >
                                             <figcaption><p>Thimb</p></figcaption>
                                         </figure>
                                     </a>
@@ -98,7 +94,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
                                     <a href="../images/store4.jpg" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store4.jpg" alt="Nr.1" style="width:200px;height:200px;">
+                                            <img src="../images/store4.jpg" alt="Nr.1">
                                             <figcaption><p>VellMart</p></figcaption>
                                         </figure>
                                     </a>
@@ -106,7 +102,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
                                     <a href="../images/store5.jpeg" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store5.jpg" alt="Nr.1" style="width:200px;height:200px;">
+                                            <img src="../images/store5.jpg" alt="Nr.1">
                                             <figcaption><p>Thimb</p></figcaption>
                                         </figure>
                                     </a>
@@ -114,7 +110,7 @@ and open the template in the editor.
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
                                     <a href="../images/store5.jpg" class="thumbnail">
                                         <figure>
-                                            <img src="../images/store6.jpg" alt="Nr.1" style="width:200px;height:200px;">
+                                            <img src="../images/store6.jpg" alt="Nr.1">
                                             <figcaption><p>VellMart</p></figcaption>
                                         </figure>
                                     </a>

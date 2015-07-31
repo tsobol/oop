@@ -13,10 +13,10 @@ and open the template in the editor.
         <script type="text/javascript" src="../bootstrap/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../JS/add-gain.js"></script>
-        <link rel="stylesheet"  href="../CSS/general.css">
-        <link rel="stylesheet"  href="../CSS/insert-form.css">       
-        <link rel="stylesheet"  href="../CSS/single-market.css">  
+         <link rel="stylesheet/less" type="text/css" href="../CSS/general.less" />
+        <link rel="stylesheet/less" type="text/css" href="../CSS/single-market.less" />
         <link rel="stylesheet"  href="../CSS/styles.css">
+        <script src="../less.js" type="text/javascript"></script>
         <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>  
     </head>
     <body background="gray">
@@ -78,7 +78,7 @@ and open the template in the editor.
                     </div>  
                     <h1> Register your work</h1>
 
-                    <div class="row " style="margin-bottom: 40px;">
+                    <div class="row ">
                         <div class="col-md-4 col-sm-12">
                             <div class="panel insert-form">
                                 <div class="panel-heading">Gain form</div>
@@ -86,14 +86,16 @@ and open the template in the editor.
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
                                             <label class="control-label col-xs-6 "> Date:</label>
-                                            <input type="date" id="date"/>
+                                            <input type="date" class="form-control" id="date"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-6">Working cash registers:</label>
                                             <input id="cash-registers" class="form-control" type="number" min="3" max="5" placeholder="3"/>                                    
                                         </div>
                                         <div class="checkbox">
-                                            <label><input  type="checkbox"><p> Holidays</p></label>
+                                            <label>
+                                                <input  type="checkbox"><p> Holidays</p>
+                                            </label>
                                         </div>
                                         <hr>
                                         <!-- Trigger the modal with a button -->

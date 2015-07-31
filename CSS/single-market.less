@@ -1,0 +1,189 @@
+@deep-blue: #227799;
+@dark: #12343f;
+@cyan: #4499aa;
+@gray: #757575;
+@light-blue:  #70D1E3;
+
+
+.market-image{
+    background-image: url("../images/animation3.jpg");
+    opacity: 0.7;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 780px;
+    position: relative;
+    height: 25vw;
+    max-width: 780px;
+    animation: animatedBackground 10s linear;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    margin:auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+
+    &:hover #market-name{
+        background-color: #29A5BC;
+        opacity: 0.9;
+        display: block;
+    }
+
+}
+
+@keyframes animatedBackground {
+    0% { background-size: 780px; }    
+    100% { background-size: 1200px ;} 
+}
+
+#market-name{
+    position: relative;
+    top: 35%;
+    font-size: 10vw;
+    text-align: center;
+    display: none;
+}
+
+///general panel-
+.panel,.panel-heading{
+    border-radius: 0px;
+}
+
+.panel > .panel-heading, #market-name, #input-insert{
+    color: white; 
+}
+///////information panel
+
+.panel-info > .panel-heading {
+    background-color: @dark;
+}
+
+.panel-info{
+    border-color: @dark;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 40px;
+
+    span{
+        padding-right: 10px;
+        text-align: right;
+
+        &.title{
+            color: @deep-blue;
+            font-weight: bold;
+        }
+    }
+    label{
+        color: @dark;
+    }
+}
+
+//--------------------------------
+//pen- register your work
+
+h1 {
+    font-size: 50px;
+    margin: 40px;
+    text-align: center;
+    color:  	#2a4451;
+}
+
+#pen{
+    margin: auto;
+    width: 100px;
+    font-size:100px;
+    color: @gray;
+
+    img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+//////table registered gain
+
+.panel-gain{
+    border-color: @cyan;
+}
+.panel-gain > .panel-heading{
+    background-color:@cyan;
+}
+
+
+table, .table-fixed tbody{
+    width: 100%;
+}
+
+.table-fixed tbody {
+    height: 154px;
+    overflow-y: auto;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+}
+
+th.col-sm-1{
+    width: 10%;}
+td.col-sm-1{
+    width: 8.46%;
+}
+
+th.col-sm-2{
+    width: 14.166667%;}
+
+td.col-sm-2{
+    width: 14.4%;
+}
+th.col-sm-3{
+    width: 16.666667%;}
+
+td.col-sm-3{
+    width: 16.97%;
+}
+
+
+///////gain-form
+
+.insert-form{
+    border-color: @light-blue;
+
+    .panel-heading{
+        background-color: @light-blue;
+    }
+}
+
+.form-horizontal .control-label{
+    padding-top: 0px;
+}
+
+#input-insert{
+    display: block;
+    width: 40%;
+    background-color: @light-blue;
+    margin:auto;
+}
+
+.form-horizontal .control-label{
+    text-align: left;
+
+}
+.form-control{
+    width: 30%
+}
+
+.checkbox {
+    input[type="checkbox"]{
+        margin-left: 50%;
+    }
+    label{
+        padding-left: 0px;
+        font-weight: bold;
+    }
+}
+/////modal window
+
+.modal-body span{
+    font-weight: bold;
+}
