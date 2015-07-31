@@ -50,14 +50,20 @@
 .panel > .panel-heading, #market-name, #input-insert{
     color: white; 
 }
-///////information panel
 
-.panel-info > .panel-heading {
-    background-color: @dark;
+.panel-colors(@color){
+    border-color: @color;
+    .panel-heading{
+        background-color: @color;
+    }
 }
 
+///////information panel
+
+
 .panel-info{
-    border-color: @dark;
+    .panel-colors(@dark);
+    
     max-width: 400px;
     margin: auto;
     margin-bottom: 40px;
@@ -101,12 +107,8 @@ h1 {
 //////table registered gain
 
 .panel-gain{
-    border-color: @cyan;
-}
-.panel-gain > .panel-heading{
-    background-color:@cyan;
-}
-
+    .panel-colors(@cyan);
+   }
 
 table, .table-fixed tbody{
     width: 100%;
@@ -147,15 +149,12 @@ td.col-sm-3{
 ///////gain-form
 
 .insert-form{
-    border-color: @light-blue;
-
-    .panel-heading{
-        background-color: @light-blue;
-    }
+    .panel-colors(@light-blue);
 }
 
 .form-horizontal .control-label{
     padding-top: 0px;
+    text-align: left;
 }
 
 #input-insert{
@@ -165,10 +164,6 @@ td.col-sm-3{
     margin:auto;
 }
 
-.form-horizontal .control-label{
-    text-align: left;
-
-}
 .form-control{
     width: 30%
 }
@@ -187,3 +182,4 @@ td.col-sm-3{
 .modal-body span{
     font-weight: bold;
 }
+
