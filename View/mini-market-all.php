@@ -76,7 +76,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
-                                    <a href="../images/store2.jpeg" class="thumbnail">
+                                    <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
                                             <img src="../images/store2.jpeg" alt="Nr.1">
                                             <figcaption><p>Nr.1</p></figcaption>
@@ -84,7 +84,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
-                                    <a href="../images/store3.jpeg" class="thumbnail">
+                                    <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
                                             <img src="../images/store3.jpeg" alt="Nr.1" >
                                             <figcaption><p>Thimb</p></figcaption>
@@ -92,7 +92,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
-                                    <a href="../images/store4.jpg" class="thumbnail">
+                                    <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
                                             <img src="../images/store4.jpg" alt="Nr.1">
                                             <figcaption><p>VellMart</p></figcaption>
@@ -100,7 +100,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
-                                    <a href="../images/store5.jpeg" class="thumbnail">
+                                    <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
                                             <img src="../images/store5.jpg" alt="Nr.1">
                                             <figcaption><p>Thimb</p></figcaption>
@@ -108,7 +108,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 single-image">
-                                    <a href="../images/store5.jpg" class="thumbnail">
+                                    <a href="../View/single-market.php" class="thumbnail">
                                         <figure>
                                             <img src="../images/store6.jpg" alt="Nr.1">
                                             <figcaption><p>VellMart</p></figcaption>
