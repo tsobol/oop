@@ -5,21 +5,35 @@
 @light-blue:  #70D1E3;
 
 
-.market-image{
-    background-image: url("../images/animation3.jpg");
+.market-image{    
+    position: relative;
+    overflow: hidden;
+    height: 25vw;
+    max-width: 780px;
+     margin:auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    
+    #image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -moz-transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+    -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+     background-image: url("../images/animation3.jpg"); -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: -1;
     opacity: 0.7;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 780px;
-    position: relative;
-    height: 25vw;
-    max-width: 780px;
-    animation: animatedBackground 10s linear;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    margin:auto;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    background-size: 780px;       
+    animation: animatedBackground 15s linear infinite alternate;
+    }
 
     &:hover #market-name{
         background-color: #29A5BC;
@@ -30,8 +44,15 @@
 }
 
 @keyframes animatedBackground {
-    0% { background-size: 780px; }    
-    100% { background-size: 1200px ;} 
+    0%{ -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1); 
+    }
+    100%{
+    -moz-transform: scale(2,2);
+    -webkit-transform: scale(2,2);
+    transform: scale(2,2);    
+    }
 }
 
 #market-name{

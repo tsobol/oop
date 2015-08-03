@@ -1,8 +1,9 @@
 @menu-image-width: 400px;
 @menu-image-height: 240px;
+@img-path: "../images";
 
 .jumbotron {
-    background:  url("../images/maths.jpg") center center;
+    background:  url("@{img-path}/maths.jpg") center center;
     width: 90%;
     height: 100%;
     background-size: cover;
@@ -23,21 +24,21 @@
     color: #405061;
 }
 
-#add-menu-picture{background-image: url("../images/add_complete.jpg");}
+#add-menu-picture{background-image: url("@{img-path}/add_complete.jpg");}
 
-#register-menu-picture{background-image: url("../images/register_complete.jpg");}
+#register-menu-picture{background-image: url("@{img-path}/register_complete.jpg");}
 
-#compare-menu-picture{background-image: url("../images/compare_complete.jpg");}
+#compare-menu-picture{background-image: url("@{img-path}/compare_complete.jpg");}
 
-#analyze-menu-picture{background-image: url("../images/analyze_complete.jpg");}
+#analyze-menu-picture{background-image: url("@{img-path}/analyze_complete.jpg");}
 
-#xs-add-menu-picture{background-image: url("../images/rsz_add_complete.jpg");}
+#xs-add-menu-picture{background-image: url("@{img-path}/rsz_add_complete.jpg");}
 
-#xs-register-menu-picture{background-image: url("../images/rsz_register_complete.jpg");}
+#xs-register-menu-picture{background-image: url("@{img-path}/rsz_register_complete.jpg");}
 
-#xs-compare-menu-picture{background-image: url("../images/rsz_compare_complete.jpg");}
+#xs-compare-menu-picture{background-image: url("@{img-path}/rsz_compare_complete.jpg");}
 
-#xs-analyze-menu-picture{background-image: url("../images/rsz_analyze_complete.jpg");}
+#xs-analyze-menu-picture{background-image: url("@{img-path}/rsz_analyze_complete.jpg");}
 
 .lg-image{
     width: @menu-image-width;

@@ -29,7 +29,8 @@ and open the template in the editor.
                 <br>
                 <div class="container" id="wall">
 
-                    <div class="market-image">
+                    <div class="market-image"> 
+                        <div id="image"></div>
                         <div id="market-name">Kaufland</div>
                     </div>
 
